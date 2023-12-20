@@ -11,6 +11,16 @@ help: # ignore checkmake
 
 all: lock lint test radon
 
+env:
+	poetry run python --version
+	poetry --version
+	poetry show
+
+setup:
+	poetry install
+	poetry run pre-commit install
+	poetry run pre-commit install hooks
+
 lint:
 	poetry run pre-commit run --all-files
 
